@@ -1,0 +1,23 @@
+# Backend (Java/Spring)
+server/target/
+server/.mvn/wrapper/maven-wrapper.properties
+server/mvnw
+server/mvnw.cmd
+server/*.log
+server/.classpath
+server/.project
+server/.settings/
+server/help.md
+
+# Frontend (Node/React)
+client/node_modules/
+client/dist/
+client/.env
+client/.DS_Store
+client/coverage/
+
+# IDE/System
+.idea/
+.vscode/
+*.swp
+Thumbs.db

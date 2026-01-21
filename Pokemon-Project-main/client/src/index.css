@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+  --primary: #FFD600;
+  /* Banana Yellow */
+  --accent: #F4B400;
+  /* Deep Gold */
+  --bg-color: #FAFAFA;
+  /* Off-white */
+  --card-bg: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+
+  --shadow-soft: 0 20px 60px rgba(255, 214, 0, 0.15);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --border-radius: 32px;
+
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Soft Gradient Background */
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(255, 214, 0, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(255, 230, 200, 0.3) 0%, transparent 40%);
+}
+
+#root {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Search Bar --- */
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.search-container:hover {
+  transform: translateY(-2px);
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  box-shadow: var(--shadow-card);
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+input {
+  width: 100%;
+  padding: 16px 30px;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  outline: none;
+  background: transparent;
+}
+
+input::placeholder {
+  color: #CCC;
+  font-weight: 300;
+}
+
+button {
+  background: var(--primary);
+  color: #1A1A1A;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 32px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #FFEA00;
+  box-shadow: 0 8px 16px rgba(255, 214, 0, 0.4);
+}
+
+/* --- Main Card Layout --- */
+.main-container {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: fadeUp 0.8s ease-out;
+}
+
+/* Left: Avatar */
+.pokemon-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background: radial-gradient(circle at center, #FFFDE7 0%, #FFFFFF 70%);
+  position: relative;
+}
+
+/* Soft Orb Glow */
+.pokemon-display::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.pokemon-img {
+  width: 280px;
+  height: 280px;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+  z-index: 1;
+  transition: transform 0.5s ease;
+}
+
+.pokemon-img:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 30px 0 10px 0;
+  color: var(--text-primary);
+  font-weight: 800;
+  text-transform: capitalize;
+  letter-spacing: -1px;
+  z-index: 1;
+}
+
+.type-pill {
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  z-index: 1;
+}
+
+/* Right: Stats */
+.stats-grid {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Progress Bar Minimalist */
+.progress-bg {
+  flex: 1;
+  height: 8px;
+  background: #F0F0F0;
+  border-radius: 4px;
+  margin: 0 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+}
+
+/* Loader */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.05);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s infinite cubic-bezier(0.6, 0.2, 0.4, 0.8);
+  margin: 20px auto;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
