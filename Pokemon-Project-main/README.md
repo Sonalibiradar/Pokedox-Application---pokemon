@@ -1,4 +1,4 @@
-# Pokemon Search Application
+# Pokemon Search Application 
 
 A premium "Pokedex" application allowing users to search and view detailed statistics of Pokemon.
 Built with a Spring Boot backend (caching enabled) and a React Frontend (Glassmorphism design).
